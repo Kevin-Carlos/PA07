@@ -64,6 +64,7 @@
     <AdditionalSourcesToCopyMapping>makefile;$(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Json.cpp" />
     <ClCompile Include="PA07.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Json.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Statistics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlayerStatistics.json" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

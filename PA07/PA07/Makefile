@@ -8,10 +8,10 @@ CC=g++
 CXXFLAGS = -g -Wall -std=c++11
 
 # Source files
-SOURCES = PA07.cpp
+SOURCES = PA07.cpp Json.cpp
 
 # header file dependencies
-HEADERS =
+HEADERS = Game.h Json.h Statistics.h Player.h
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
