@@ -15,6 +15,7 @@
 // Header Files ////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <fstream>
+#include <map>
 
 #include "Json.h"
 
@@ -23,6 +24,10 @@ void Json::parse ( std::string fileName )
    //Variables
    std::ifstream fin;
    std::string string;
+   std::string key;
+   std::string data;
+   std::map < std::string , std::string > stringMap;
+   std::map < std::string, int > dataMap;
 
    //Open the given file
    fin.open ( fileName );
@@ -35,17 +40,16 @@ void Json::parse ( std::string fileName )
    }
 
    //Read the file in
-   while ( !fin.eof ( ) )
+   while ( fin.good ( ) )
    {
-      //Find the first bracket
-      fin >> string;
-      while ( string != "{" )
+      while ( !fin.eof ( ) )
       {
-         fin >> string;
-      }
+         //Find the key
+         getline ( fin , string , '"' );
+         key = string;
 
-      getline ( fin , string , '}' );
-      std::cout << string << std::endl;
+         std::cout << "Key: " << key << std::endl;
+      }
    }
 
 }
