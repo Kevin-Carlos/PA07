@@ -16,17 +16,17 @@
 #include "Game.h"
 
 // Processor Directives ////////////////////////////////////////////////////////
-#ifndef _STATISTICS
-#define _STATISTICS
+#ifndef _OVERVIEW
+#define _OVERVIEW
 
-class Statistics : public Game
+class Overview : public Game
 {
    int Games;
    int Won;
    int Win_Rate;
    int Games_Played;
-   float Fastest_Win;
+   int Fastest_Win;
    int Fewest_Moves;
-   float Top_Score;
+   int Top_Score;
 };
 #endif

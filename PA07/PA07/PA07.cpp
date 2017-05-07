@@ -32,7 +32,6 @@ int main ( )
    Json obj;
    std::string fileName = "PlayerStatistics.json";
 
-
    obj.parse ( fileName );
 	return 0;
 }
