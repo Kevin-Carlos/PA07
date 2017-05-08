@@ -16,18 +16,19 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <stdlib.h>
 
 #include "Json.h"
 
 void Json::parse ( std::string fileName )
 {
    //Variables
-   std::ifstream fin;
-   std::string string;
-   std::string key;
-   std::string data;
-   std::map < std::string , std::string > stringMap;
-   std::map < std::string , int > dataMap;
+   std::ifstream  fin;
+   std::string    garbage;
+   std::string    key;
+   std::string    stringData;
+   std::map       < std::string , std::string > stringMap;
+   std::map       < std::string , int > dataMap;
 
    //Open the given file
    fin.open ( fileName );
@@ -43,9 +44,16 @@ void Json::parse ( std::string fileName )
    while ( !fin.eof ( ) )
    {
       //Find the key
-      getline ( fin , string , '"' );
-      key = string;
-      std::cout << "Key: " << key << std::endl;
+      getline ( fin , garbage );
+      getline ( fin , garbage );
+      getline ( fin , key , ':');
+      getline ( fin , garbage , ' ' );
+      getline ( fin , stringData , ',' );
+      stringMap [ key ] = stringData;
+
+      std::cout << "Key: " << key << "\n";
+      std::cout << "Data: " << stringData << "\n";
+      
    }
 
 }

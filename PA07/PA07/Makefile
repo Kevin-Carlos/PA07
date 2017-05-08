@@ -11,7 +11,7 @@ CXXFLAGS = -g -Wall -std=c++11
 SOURCES = PA07.cpp Json.cpp
 
 # header file dependencies
-HEADERS = Game.h Json.h Statistics.h Player.h
+HEADERS = Game.h Json.h Overview.h Player.h
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
