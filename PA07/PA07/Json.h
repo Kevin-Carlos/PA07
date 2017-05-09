@@ -14,6 +14,7 @@
 
 // Header Files ////////////////////////////////////////////////////////////////
 #include <string>
+#include <map>
 
 // Processor Directives ////////////////////////////////////////////////////////
 #ifndef _JSON
@@ -22,6 +23,9 @@
 class Json
 {
 public:
+   std::map       < std::string , std::string > stringMap;
+   std::map       < std::string , int > dataMap;
+
    //Parser
    void parse ( std::string fileName );
 };

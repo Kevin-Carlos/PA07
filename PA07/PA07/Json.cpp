@@ -27,8 +27,7 @@ void Json::parse ( std::string fileName )
    std::string    garbage;
    std::string    key;
    std::string    stringData;
-   std::map       < std::string , std::string > stringMap;
-   std::map       < std::string , int > dataMap;
+   int            intData;
 
    //Open the given file
    fin.open ( fileName );
@@ -41,20 +40,35 @@ void Json::parse ( std::string fileName )
    }
 
    //Read the file in
-   while ( !fin.eof ( ) )
-   {
-      //Find the key
-      getline ( fin , garbage );
-      getline ( fin , garbage );
-      getline ( fin , key , ':');
-      getline ( fin , garbage , ' ' );
-      getline ( fin , stringData , ',' );
-      stringMap [ key ] = stringData;
+   //Find the key
+   getline ( fin , garbage );
+   getline ( fin , garbage );
+   getline ( fin , garbage , ' ' );
+   getline ( fin , garbage , ' ' );
+   getline ( fin , garbage , ' ' );
+   getline ( fin , garbage , ' ' );
+   getline ( fin , key , ':');
+   getline ( fin , garbage , ' ' );
+   getline ( fin , stringData , ',' );
+   stringMap [ key ] = stringData;
+   getline ( fin , garbage , '{' );
+   fin >> key;
+   key.pop_back ( );
+   fin >> stringData;
+   stringData.pop_back ( );
+   intData = stoi ( stringData );
+   dataMap [ key ] = intData;
+   fin >> key;
+   key.pop_back ( );
+   fin >> stringData;
+   stringData.pop_back ( );
+   intData = stoi ( stringData );
+   dataMap [ key ] = intData;
 
-      std::cout << "Key: " << key << "\n";
-      std::cout << "Data: " << stringData << "\n";
+   std::cout << "Key: " << key << "\n";
+   std::cout << "Data: " << stringData << "\n";
+   std::cout << "intData: " << intData << "\n";
       
-   }
 
 }
 
